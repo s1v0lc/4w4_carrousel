@@ -23,11 +23,16 @@ function eddym_enqueue() {
     true); //true permet d'ajouter à la fin du document ?
 }
 add_action('wp_enqueue_scripts', 'eddym_enqueue');
+/*
+    Important
+    Dans header.php -> wp_header() dans <head>
+    dans footer.php -> wp_footer() dans <body> à la fin
+ */
 
 function genere_html() {
     // 
     // 
-    $contenu = '<button class="bouton__ouvrir">Ouvrir</button>
+    $contenu = '<button class="bouton__ouvrir">Voir Galerie</button>
     <div class="carrousel">
     <button class="carrousel__x">X</button>
     <figure class="carrousel__figure"></figure>

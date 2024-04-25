@@ -14,14 +14,15 @@
         const elm = galerie__img[i];
         let carrousel__img = document.createElement("img");
         carrousel__img.classList.add("carrousel__img");
+        carrousel__img.classList.remove(".carte");
         carrousel__img.src = elm.src;
         carrousel__figure.appendChild(carrousel__img);
         // Boutons radios
         let form__input = document.createElement("input");
         form__input.setAttribute("type", "radio");
         form__input.setAttribute("name", "carrousel__radio");
-        form__input.setAttribute("data-test", i);
-        form__input.classList.add("desactive");
+        form__input.setAttribute("data-id", i);
+        
         form__input.addEventListener("change", changerImgCarrousel);
         carrousel__form.appendChild(form__input);
     }
@@ -31,10 +32,21 @@
     // Fonction appelée quand un bouton radio change
     // Elle change ensuite le zindez correspondant à l'index du bouton cliqué
     function changerImgCarrousel(event) {
-        let i = event.target.dataset.test;
+        let i = event.target.dataset.id;
         for (const img of carrousel__figure.children) { img.style.zIndex = "10"; }
         let carrousel_enfants = carrousel__figure.children;
         carrousel_enfants[Number(i)].style.zIndex = "100";
+    }
+
+    function creer_radio_carrousel (index) {
+        //input
+        // type
+        // name
+        // index
+        // ajouter au form
+        // écouteur de l'événement change
+            // initialiser le style.opacity à 0 pour l'ensemble des images
+            // initialiser l'image selectionnée à style.opacity = 1
     }
 
     bouton.addEventListener("mousedown", function () {
