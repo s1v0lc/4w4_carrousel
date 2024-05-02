@@ -42,8 +42,9 @@
     // Fonction appelée quand un bouton radio change
     // Elle change ensuite le z-index correspondant à l'index du bouton cliqué
     function changerImgCarrousel(i) {
-        // Activation du bouton radio correspondant
+        // "Uncheck" les boutons radio 
         for (const elm of carrousel__form) {elm.removeAttribute("checked", false);}
+        // Activation du bouton radio correspondant
         carrousel__form[i].setAttribute("checked", true);
         console.log(carrousel__form);
         for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
