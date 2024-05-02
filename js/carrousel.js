@@ -29,44 +29,47 @@
         form__input.setAttribute("type", "radio");
         form__input.setAttribute("name", "carrousel__radio");
         form__input.setAttribute("data-id", i);
-        
-        form__input.addEventListener("change", changerImgCarrousel);
+
+        form__input.addEventListener("change", determinerIndex);
         carrousel__form.appendChild(form__input);
     }
-    
-    // Activation du premier bouton radio par défaut
-    carrousel__form.firstChild.setAttribute("checked", "checked");
 
+    // Observe quelle image a été cliquée
+    function determinerIndex(event) {
+        let i = event.target.dataset.id;
+        changerImgCarrousel(i);
+    }
     // Fonction appelée quand un bouton radio change
     // Elle change ensuite le z-index correspondant à l'index du bouton cliqué
-    function changerImgCarrousel(event) {
-        let i = event.target.dataset.id;
-        for (const img of carrousel__figure.children) { img.style.zIndex = "10"; }
+    function changerImgCarrousel(i) {
+        // Activation du bouton radio correspondant
+        for (const elm of carrousel__form) {elm.removeAttribute("checked", false);}
+        carrousel__form[i].setAttribute("checked", true);
+        console.log(carrousel__form);
+        for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
         let carrousel_enfants = carrousel__figure.children;
-        carrousel_enfants[Number(i)].style.zIndex = "100";
+        carrousel_enfants[Number(i)].style.opacity = "1";
     }
 
-    function creer_radio_carrousel (index) {
-        //input
-        // type
-        // name
-        // index
-        // ajouter au form
-        // écouteur de l'événement change
-            // initialiser le style.opacity à 0 pour l'ensemble des images
-            // initialiser l'image selectionnée à style.opacity = 1
+    // Boucle qui met des event listeners pour ouvrir le carrousel avec la bonne image selon son index
+    for (let i = 0; i < boutons.length; i++) {
+        boutons[i].addEventListener("mousedown", function () {
+            ouvrirCarrousel(i);
+        })
     }
-   for (const bouton of boutons) {
-    bouton.addEventListener("mousedown", function () {
-        ouvrirCarrousel();
-    })
-   }
+
+    // Boutons X
     carrousel__x.addEventListener("mousedown", function () {
         carrousel.classList.remove("carrousel--ouvrir");
     })
 
+    /** Ouverture du carrousel
+     * @param {int} index Index de l'image cliquée
+     */
     function ouvrirCarrousel(index) {
+        // ajout de la classe pour scale up le conteneur
         carrousel.classList.add("carrousel--ouvrir");
-        // changerImgCarrousel();
+        // Affichage de la bonne image
+        changerImgCarrousel(index);
     }
 })()
