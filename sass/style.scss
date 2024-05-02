@@ -8,8 +8,12 @@
     top: 30%;
     left: 25%;
     background-color: rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0px 20px 5px rgba(0,0,0,0.8);
+    box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.8);
     z-index: 102;
+}
+
+.bouton__ouvrir {
+    cursor: pointer;
 }
 
 .carrousel__x {
@@ -39,6 +43,7 @@
 .carrousel--ouvrir {
     // classe pour ouvrir
     transform: scale(1);
+
 }
 
 .carrousel__figure {

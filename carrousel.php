@@ -32,7 +32,7 @@ add_action('wp_enqueue_scripts', 'eddym_enqueue');
 function genere_html() {
     // 
     // 
-    $contenu = '<button class="bouton__ouvrir">Voir Galerie</button>
+    $contenu = '
     <div class="carrousel">
     <button class="carrousel__x">X</button>
     <figure class="carrousel__figure"></figure>

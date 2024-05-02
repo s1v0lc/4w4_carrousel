@@ -1,6 +1,13 @@
 (function () {
     let carrousel = document.querySelector('.carrousel');
-    let bouton = document.querySelector('.bouton__ouvrir');
+
+    // Sélection des images de la galerie pour leur affecter la classe ".bouton__ouvrir" 
+    let imagesboutons = document.querySelectorAll('.carte>figure>figure');
+    for (const image of imagesboutons) {
+        image.classList.add("bouton__ouvrir");
+
+    }
+    let boutons = document.querySelectorAll('.bouton__ouvrir');
     let carrousel__x = document.querySelector('.carrousel__x');
 
     let galerie = document.querySelector('.galerie');
@@ -26,11 +33,12 @@
         form__input.addEventListener("change", changerImgCarrousel);
         carrousel__form.appendChild(form__input);
     }
+    
     // Activation du premier bouton radio par défaut
     carrousel__form.firstChild.setAttribute("checked", "checked");
 
     // Fonction appelée quand un bouton radio change
-    // Elle change ensuite le zindez correspondant à l'index du bouton cliqué
+    // Elle change ensuite le z-index correspondant à l'index du bouton cliqué
     function changerImgCarrousel(event) {
         let i = event.target.dataset.id;
         for (const img of carrousel__figure.children) { img.style.zIndex = "10"; }
@@ -48,11 +56,17 @@
             // initialiser le style.opacity à 0 pour l'ensemble des images
             // initialiser l'image selectionnée à style.opacity = 1
     }
-
+   for (const bouton of boutons) {
     bouton.addEventListener("mousedown", function () {
-        carrousel.classList.add("carrousel--ouvrir");
+        ouvrirCarrousel();
     })
+   }
     carrousel__x.addEventListener("mousedown", function () {
         carrousel.classList.remove("carrousel--ouvrir");
     })
+
+    function ouvrirCarrousel(index) {
+        carrousel.classList.add("carrousel--ouvrir");
+        // changerImgCarrousel();
+    }
 })()
