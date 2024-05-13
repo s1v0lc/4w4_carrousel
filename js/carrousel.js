@@ -59,7 +59,7 @@
         })
     }
 
-    // Boutons X
+    // Bouton X
     carrousel__x.addEventListener("mousedown", function () {
         carrousel.classList.remove("carrousel--ouvrir");
     })
