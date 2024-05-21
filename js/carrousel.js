@@ -12,7 +12,6 @@
         let carrousel__droite = document.querySelector('.carrousel__droite');
         let carrousel__gauche = document.querySelector('.carrousel__gauche');
         let indexFleches; // variables extérieures aux fonctions pour permettre aux flèches de le changer
-
         // Sélection des autres éléments du carrousel
         let carrousel__figure = document.querySelector('.carrousel__figure');
         let galerie__img = document.querySelectorAll(".galerie img"); // collection d'image de la galerie
@@ -35,28 +34,35 @@
             carrousel__form.appendChild(form__input);
         }
 
-        // Observe quelle image a été cliquée
+        /** Appelée lors d'un changement des boutons radios,
+         * la fonction détermine quel bouton a été cliqué
+         * et change l'image affichée dans le carrousel
+         * @param {*} event 
+         */
         function determinerIndex(event) {
             let i = event.target.dataset.id;
             indexFleches = Number(i);
-            changerImgCarrousel(i);
-        }
-        // Fonction appelée quand un bouton radio change
-        // Elle change ensuite le z-index correspondant à l'index du bouton cliqué
-        function changerImgCarrousel(i) {
-            // S'assurer que c'est un nombre
-            let index = Number(i);
-            // "Uncheck" les boutons radio 
-            for (const elm of carrousel__form) { elm.removeAttribute("checked", false); }
-            // Activation du bouton radio correspondant
-            carrousel__form[index].setAttribute("checked", true);
-            // console.log(carrousel__form);
-            for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
-            let carrousel_enfants = carrousel__figure.children;
-            carrousel_enfants[index].style.opacity = "1";
+            changerImgCarrousel(indexFleches);
         }
 
-        // Boucle qui met des event listeners pour ouvrir le carrousel avec la bonne image selon son index
+        /** Recoit un index en parametre puis change l'image dans le carrousel
+         *
+         * @param {*} i index de l'image à afficher
+         */
+        function changerImgCarrousel(i) {
+            // "Uncheck" les boutons radio 
+            for (const elm of carrousel__form) { elm.removeAttribute("checked", false); }
+            // Activation du bouton radio correspondant à l'index
+            carrousel__form[i].setAttribute("checked", true);
+            // console.log(carrousel__form);
+            
+            // Retire toutes les images sauf la bonne
+            for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
+            let carrousel_enfants = carrousel__figure.children;
+            carrousel_enfants[i].style.opacity = "1";
+        }
+
+        // Boucle qui met des event listeners pour ouvrir le carrousel
         for (let i = 0; i < boutons.length; i++) {
             boutons[i].addEventListener("mousedown", function () {
                 ouvrirCarrousel(i);
@@ -68,6 +74,7 @@
             carrousel.classList.remove("carrousel--ouvrir");
         })
         // Flèches
+        // gauche
         carrousel__droite.addEventListener("mousedown", function () {
             if (indexFleches == galerie__img.length-1) {
                 indexFleches = 0;
@@ -76,6 +83,7 @@
             }
             changerImgCarrousel(indexFleches)
         })
+        // droite
         carrousel__gauche.addEventListener("mousedown", function () {
             if (indexFleches == 0) {
                 indexFleches = galerie__img.length-1;
@@ -85,7 +93,7 @@
             changerImgCarrousel(indexFleches);
         })
 
-        /** Ouverture du carrousel
+        /** Observe quelle image a été cliquée lors de l'ouverture du carrousel
          * @param {int} index Index de l'image cliquée
          */
         function ouvrirCarrousel(index) {
