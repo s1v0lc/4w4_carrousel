@@ -1,5 +1,6 @@
 (function () {
     let carrousel = document.querySelector('.carrousel');
+    // Vérification
     if (carrousel) {
         // Sélection des images de la galerie pour leur affecter la classe ".bouton__ouvrir" 
         let imagesboutons = document.querySelectorAll('.carte>figure>figure');
@@ -45,8 +46,7 @@
             changerImgCarrousel(indexFleches);
         }
 
-        /** Recoit un index en parametre puis change l'image dans le carrousel
-         *
+        /** Reçoit un index en parametre puis change l'image dans le carrousel
          * @param {*} i index de l'image à afficher
          */
         function changerImgCarrousel(i) {
@@ -55,7 +55,7 @@
             // Activation du bouton radio correspondant à l'index
             carrousel__form[i].setAttribute("checked", true);
             // console.log(carrousel__form);
-            
+
             // Retire toutes les images sauf la bonne
             for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
             let carrousel_enfants = carrousel__figure.children;
@@ -76,7 +76,7 @@
         // Flèches
         // gauche
         carrousel__droite.addEventListener("mousedown", function () {
-            if (indexFleches == galerie__img.length-1) {
+            if (indexFleches == galerie__img.length - 1) {
                 indexFleches = 0;
             } else {
                 indexFleches += 1;
@@ -86,7 +86,7 @@
         // droite
         carrousel__gauche.addEventListener("mousedown", function () {
             if (indexFleches == 0) {
-                indexFleches = galerie__img.length-1;
+                indexFleches = galerie__img.length - 1;
             } else {
                 indexFleches -= 1;
             }
