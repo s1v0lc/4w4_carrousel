@@ -29,12 +29,12 @@ add_action('wp_enqueue_scripts', 'eddym_enqueue');
     dans footer.php -> wp_footer() dans <body> à la fin
  */
 
-function genere_html() {
-    // 
-    // 
+function genere_html() { 
     $contenu = '
     <div class="carrousel">
     <button class="carrousel__x">X</button>
+    <button class="carrousel__gauche"><</button>
+    <button class="carrousel__droite">></button>
     <figure class="carrousel__figure"></figure>
     <form class="carrousel__form"></form>
     </div>';

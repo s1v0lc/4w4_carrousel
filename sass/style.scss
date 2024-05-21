@@ -10,35 +10,57 @@
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.8);
     z-index: 102;
+    user-select: none;
+
+    // Boutons du carrousel
+    .carrousel__x,
+    .carrousel__gauche,
+    .carrousel__droite {
+        position: absolute;
+        z-index: 103;
+        border-radius: 50%;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        font-size: 2rem;
+        border: none;
+        color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.1);
+        transition: color 0.2s, background-color 0.2s;
+        cursor: pointer;
+        user-select: none;
+        border: none;
+        font-weight: bold;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    // Flèches gauche et droite
+    .carrousel__gauche,
+    .carrousel__droite {
+        padding: 4px 12px;
+        // top: calc(50% - heigth);
+        top: 40%;
+    }
+
+    .carrousel__gauche {
+        left: 1%;
+    }
+
+    .carrousel__droite {
+        right: 1%;
+    }
+
+    .carrousel__x {
+        top: 1%;
+        right: 1%;
+        padding: 8px 16px;
+    }
 }
 
 .bouton__ouvrir {
     cursor: pointer;
 }
-
-.carrousel__x {
-    // bouton X
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    padding: 8px 16px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    border: none;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    z-index: 101;
-    transition: color 0.2s, background-color 0.2s;
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-        color: rgba(0, 0, 0, 0.8);
-    }
-}
-
 
 .carrousel--ouvrir {
     // classe pour ouvrir

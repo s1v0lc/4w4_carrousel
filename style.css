@@ -9,31 +9,50 @@
   background-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.8);
   z-index: 102;
+  user-select: none;
+}
+.carrousel .carrousel__x,
+.carrousel .carrousel__gauche,
+.carrousel .carrousel__droite {
+  position: absolute;
+  z-index: 103;
+  border-radius: 50%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 2rem;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: color 0.2s, background-color 0.2s;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  font-weight: bold;
+}
+.carrousel .carrousel__x:hover,
+.carrousel .carrousel__gauche:hover,
+.carrousel .carrousel__droite:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.8);
+}
+.carrousel .carrousel__gauche,
+.carrousel .carrousel__droite {
+  padding: 4px 12px;
+  top: 40%;
+}
+.carrousel .carrousel__gauche {
+  left: 1%;
+}
+.carrousel .carrousel__droite {
+  right: 1%;
+}
+.carrousel .carrousel__x {
+  top: 1%;
+  right: 1%;
+  padding: 8px 16px;
 }
 
 .bouton__ouvrir {
   cursor: pointer;
-}
-
-.carrousel__x {
-  position: absolute;
-  top: 1%;
-  right: 1%;
-  padding: 8px 16px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  border: none;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  z-index: 101;
-  transition: color 0.2s, background-color 0.2s;
-}
-.carrousel__x:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.8);
 }
 
 .carrousel--ouvrir {
