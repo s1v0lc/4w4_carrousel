@@ -11,7 +11,6 @@
   z-index: 102;
   user-select: none;
 }
-
 .carrousel .carrousel__x,
 .carrousel .carrousel__gauche,
 .carrousel .carrousel__droite {
@@ -29,28 +28,23 @@
   border: none;
   font-weight: bold;
 }
-
 .carrousel .carrousel__x:hover,
 .carrousel .carrousel__gauche:hover,
 .carrousel .carrousel__droite:hover {
   background-color: rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.8);
 }
-
 .carrousel .carrousel__gauche,
 .carrousel .carrousel__droite {
   padding: 4px 12px;
   top: 40%;
 }
-
 .carrousel .carrousel__gauche {
   left: 1%;
 }
-
 .carrousel .carrousel__droite {
   right: 1%;
 }
-
 .carrousel .carrousel__x {
   top: 1%;
   right: 1%;
@@ -90,9 +84,8 @@
   column-gap: 0.8%;
   z-index: 101;
 }
-
 .carrousel__form input {
   cursor: pointer;
   height: 16px;
   width: 16px;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

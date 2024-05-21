@@ -38,20 +38,22 @@
         // Observe quelle image a été cliquée
         function determinerIndex(event) {
             let i = event.target.dataset.id;
-            indexFleches = i;
+            indexFleches = Number(i);
             changerImgCarrousel(i);
         }
         // Fonction appelée quand un bouton radio change
         // Elle change ensuite le z-index correspondant à l'index du bouton cliqué
         function changerImgCarrousel(i) {
+            // S'assurer que c'est un nombre
+            let index = Number(i);
             // "Uncheck" les boutons radio 
             for (const elm of carrousel__form) { elm.removeAttribute("checked", false); }
             // Activation du bouton radio correspondant
-            carrousel__form[i].setAttribute("checked", true);
+            carrousel__form[index].setAttribute("checked", true);
             // console.log(carrousel__form);
             for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
             let carrousel_enfants = carrousel__figure.children;
-            carrousel_enfants[i].style.opacity = "1";
+            carrousel_enfants[index].style.opacity = "1";
         }
 
         // Boucle qui met des event listeners pour ouvrir le carrousel avec la bonne image selon son index
@@ -67,7 +69,7 @@
         })
         // Flèches
         carrousel__droite.addEventListener("mousedown", function () {
-            if (indexFleches == galerie__img.length) {
+            if (indexFleches == galerie__img.length-1) {
                 indexFleches = 0;
             } else {
                 indexFleches += 1;
@@ -76,7 +78,7 @@
         })
         carrousel__gauche.addEventListener("mousedown", function () {
             if (indexFleches == 0) {
-                indexFleches = galerie__img.length;
+                indexFleches = galerie__img.length-1;
             } else {
                 indexFleches -= 1;
             }
