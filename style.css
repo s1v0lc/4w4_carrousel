@@ -103,7 +103,7 @@
   display: flex;
   justify-content: center;
   column-gap: 0.8%;
-  z-index: 101;
+  z-index: 103;
 }
 .carrousel__form input {
   cursor: pointer;
