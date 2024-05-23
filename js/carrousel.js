@@ -54,12 +54,18 @@
             for (const elm of carrousel__form) { elm.removeAttribute("checked", false); }
             // Activation du bouton radio correspondant à l'index
             carrousel__form[i].setAttribute("checked", true);
-            // console.log(carrousel__form);
+            console.log(carrousel__form);
+
+            // Ajouter morceau de code pour refresh les boutons radios // 
 
             // Retire toutes les images sauf la bonne
-            for (const img of carrousel__figure.children) { img.style.opacity = "0"; }
+            for (const img of carrousel__figure.children) {
+                img.classList.add("carrousel__anim");
+                // img.style.zIndex = "101"; 
+            }
             let carrousel_enfants = carrousel__figure.children;
-            carrousel_enfants[i].style.opacity = "1";
+            // carrousel_enfants[i].style.zIndex = "101";
+            if (carrousel_enfants[i].classList.contains("carrousel__anim")) { carrousel_enfants[i].classList.remove("carrousel__anim"); }
         }
 
         // Boucle qui met des event listeners pour ouvrir le carrousel

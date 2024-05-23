@@ -16,45 +16,46 @@
   .carrousel__x,
   .carrousel__gauche,
   .carrousel__droite {
-      position: absolute;
-      z-index: 103;
-      border-radius: 50%;
-      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-      font-size: 2rem;
-      border: none;
-      color: rgba(0, 0, 0, 0.6);
-      background-color: rgba(0, 0, 0, 0.1);
-      transition: color 0.2s, background-color 0.2s;
-      cursor: pointer;
-      user-select: none;
-      border: none;
-      font-weight: bold;
-      &:hover {
-          background-color: rgba(0, 0, 0, 0.2);
-          color: rgba(0, 0, 0, 0.8);
-      }
+    position: absolute;
+    z-index: 103;
+    border-radius: 50%;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-size: 2rem;
+    border: none;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: color 0.2s, background-color 0.2s;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    font-weight: bold;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 0.8);
+    }
   }
 
   // Flèches gauche et droite
   .carrousel__gauche,
   .carrousel__droite {
-      padding: 4px 12px;
-      // top: calc(50% - heigth);
-      top: 40%;
+    padding: 4px 12px;
+    // top: calc(50% - heigth);
+    top: 40%;
   }
 
   .carrousel__gauche {
-      left: 1%;
+    left: 1%;
   }
 
   .carrousel__droite {
-      right: 1%;
+    right: 1%;
   }
 
   .carrousel__x {
-      top: 1%;
-      right: 1%;
-      padding: 8px 16px;
+    top: 1%;
+    right: 1%;
+    padding: 8px 16px;
   }
 }
 
@@ -84,6 +85,32 @@
   top: 0;
   left: 0;
   margin: 0;
+  transition: opacity 1s, transform 1s;
+  // transform-origin: bottom right;
+  // transform: rotate(5deg);
+}
+
+.carrousel__anim {
+  animation: cardFlip 0.3s ease-in-out forwards;
+  // Transition des images du carrousel
+  // transform-origin: bottom right;
+  // transform: rotate(5deg);
+}
+@keyframes cardFlip {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+    z-index: 102;
+  }
+  50% {
+    transform: rotate(5deg);
+    opacity: 0.8;
+  }
+  to {
+    transform: rotate(0deg);
+    opacity: 0;
+    z-index: 101;
+  }
 }
 
 .carrousel__form {
@@ -97,8 +124,8 @@
   z-index: 101;
 
   input {
-      cursor: pointer;
-      height: 16px;
-      width: 16px;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
   }
 }
