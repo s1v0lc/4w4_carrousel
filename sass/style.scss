@@ -96,16 +96,19 @@
   // transform-origin: bottom right;
   // transform: rotate(5deg);
 }
+
 @keyframes cardFlip {
   from {
     transform: rotate(0deg);
     opacity: 1;
     z-index: 102;
   }
+
   50% {
     transform: rotate(5deg);
     opacity: 0.8;
   }
+
   to {
     transform: rotate(0deg);
     opacity: 0;

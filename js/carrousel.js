@@ -3,7 +3,7 @@
     // Vérification
     if (carrousel) {
         // Sélection des images de la galerie pour leur affecter la classe ".bouton__ouvrir" 
-        let imagesboutons = document.querySelectorAll('.carte>figure>figure');
+        let imagesboutons = document.querySelectorAll('.image');
         for (const image of imagesboutons) {
             image.classList.add("bouton__ouvrir");
         }
